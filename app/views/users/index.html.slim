@@ -1,0 +1,23 @@
+.container-fluid.user-index
+  .row
+    .col-md
+      h2 ユーザーの作成
+      .user-form
+        = form_with model: @user, local: true do |f|
+          = render 'layouts/error_messages', model: f.object
+          .form-group.col-md-6
+            = f.label :name
+            = f.text_field :name, class: 'form-control'
+            = f.submit '新規登録', class: 'btn btn-primary user-create-btn'
+    .col-md
+      h2 ユーザー一覧
+      table.users-table
+        thead
+          tr
+            th 名前
+            th リンク
+        tbody
+          - @users.each do |user|
+            tr
+              td = user.name
+              td = link_to '削除', user, method: :delete, data: { confirm: 'ユーザーを削除しますよろしいですか?' }, class: 'btn btn-danger'
