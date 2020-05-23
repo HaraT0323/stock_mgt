@@ -1,0 +1,44 @@
+.container-fluid.product-index
+  .row
+    .col-md-4
+      - if @product.persisted?
+        h2 製品の編集
+      - else
+        h2 製品の登録
+      .product-form
+        = form_with model: @product, local: true do |f|
+          = render 'layouts/error_messages', model: f.object
+          .form-group.col-md-6
+            = f.label :name
+            = f.text_field :name, class: 'form-control'
+            = f.label :model_number
+            = f.text_field :model_number, class: 'form-control'
+            = f.label :stock
+            = f.number_field :stock, class: 'form-control'
+            - if f.object.persisted?
+              = f.submit '編集', class: 'btn btn-success product-create-btn'
+            - else 
+              = f.submit '新規登録', class: 'btn btn-primary product-create-btn'
+              
+    .col-md-8
+      h2 製品一覧
+      table.product-table.table
+        thead
+          tr
+            th 姿図
+            th 名前
+            th 型番
+            th 在庫
+            td リンク
+            
+        tbody
+          - @products.each do |product|
+            tr
+              th  
+                .sample-image
+                  | image
+              td = product.name
+              td = product.model_number
+              td = product.stock
+              td = link_to '編集', "/products/#{product.id}/edit", class: 'btn btn-success'
+              td = link_to '削除', product, method: :delete, data: { confirm: ' 製品を削除しますよろしいですか?' }, class: 'btn btn-danger' 

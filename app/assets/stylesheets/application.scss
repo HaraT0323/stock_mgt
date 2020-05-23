@@ -22,5 +22,39 @@
       width: 400px;
     }
   }
+.product-index {
+  h2{
+    margin-top: 20px;
+    padding-left: 15px;
+    padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: #f4f4f4;/*背景色*/
+    border-left: solid 5px #7db4e6;/*左線*/
+    border-bottom: solid 3px #d7d7d7;/*下線*/
+    width: 350px;
+  }
+  .sample-image {
+    background-color: rgb(74, 121, 184);
+    height: 120px;
+    width: 90px;
+  }
+  tbody {
+    tr {
+      height: 150px;
+    }
+  }
+  th {
+    width: 200px;
+  }
+  .product-create-btn {
+    margin-top: 15px;
+  }
+  .product-form {
+    width: 500px;
+  }
+  .product-table {
+    margin-left: 15px;
+  }
+}
   
       

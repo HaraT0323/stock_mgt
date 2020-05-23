@@ -1,7 +1,14 @@
 ja:
-    activerecord:
-      models:
-        euser: ユーザー
-      attributes:
-        user:
-          name: 名前
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+    models:
+      product: 製品
+    attributes:
+      product:
+        name: 商品名
+        stock: 在庫
+        model_number: 型番
