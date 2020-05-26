@@ -1,0 +1,27 @@
+.container-fluid.product-show-container
+  .row
+    .col-md-4
+      .product-info
+        h2  製品詳細
+        .profuct-info-text = @product.name
+        .profuct-info-text = @product.model_number
+        
+        .sample-image
+          | image
+        .profuct-info-text
+          label 在庫:
+          = @product.stock
+      .product-form
+        h2  在庫管理
+        = form_with model: @histroy, url: "/products/#{params[:id]}/histroys", local: true do |f|
+          = render 'layouts/error_messages', model: f.object
+          .form-group.col-md-6
+            = f.label :status
+            = f.select :status,[['入庫', '入庫'], ['出庫', '出庫']], { include_blank: true, selected: 1 },class: 'form-control'  
+            = f.label :user_id
+            = f.select :user_id, User.all.map { |user| [user.name, user.id] }, { include_blank: true, selected: 1 },class: 'form-control'
+            = f.label :number
+            = f.number_field :number, class: 'form-control'
+            = f.submit '更新', class: 'btn btn-primary stock-change-btn'
+    
+    .col-md-8

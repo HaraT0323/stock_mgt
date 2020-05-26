@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def show
+    @product = Product.find_by(id: params[:id])
+    @histroy = Histroy.new
+    @users = User.all.map { |user| [user.name, user.id] }
+  end
+
   def create
     @product = Product.new(product_params)
     @products = Product.all

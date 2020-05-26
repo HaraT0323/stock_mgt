@@ -2,13 +2,16 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      product: 製品
+      histroy: 履歴
     attributes:
       user:
         name: 名前
-    models:
-      product: 製品
-    attributes:
       product:
         name: 商品名
         stock: 在庫
         model_number: 型番
+      histroy:
+        number: 個数
+        status: ステータス
+        user_id: ユーザー

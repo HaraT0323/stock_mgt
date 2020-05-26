@@ -40,5 +40,6 @@
               td = product.name
               td = product.model_number
               td = product.stock
+              td = link_to '在庫管理', product, class: 'btn btn-success'
               td = link_to '編集', "/products/#{product.id}/edit", class: 'btn btn-success'
               td = link_to '削除', product, method: :delete, data: { confirm: ' 製品を削除しますよろしいですか?' }, class: 'btn btn-danger' 
